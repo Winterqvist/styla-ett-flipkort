@@ -1,63 +1,53 @@
-/* The assignment is to personalize the styling
-of this flip card! Try making it bigger or smaller,
-change the colors and text. Maybe add an image? It's
-your card so you decide! Maybe duplicating the HTML
-to create several cards with different background colors?
-Hint! Give the divs different class names to do that. */
+/* Övningen går ut på att styla ditt egna flipkort och testa på
+CSS-animationer. Prova att ge kortet en annan höjd, bredd,
+position, text och färg. Kanske vill du ha en bild på kortet?
+Eller varför inte duplicera HTML-koden för att skapa flera kort? 
+*/
 
-/*Flexbox is used on the body to center the card*/
+/* Flexbox för att centrera kortet*/
 body {
 	display: flex;
 	justify-content: center;
 	background-color: rgb(255, 243, 221);
 }
 
-/*This is the styling for the card. The card section
-itself has a transparent background to make it look
-like the card turns*/
+/* Det här är stylingen på kortet. Bakgrunden är transparent för
+att det ska se ut som att kortet vänder sig. 
+*/
 .card {
 	background-color: transparent;
 	width: 150px;
   height: 200px;
-  /*This sets a 3d-effect on the card when turning*/
+
+  /* Detta skapar en 3d-effekt på kortet när det vänds*/
 	perspective: 1000px;
 }
 
-/*This styling positions the cards front and back.*/
 .card-inner {
-  /* Position is set to relative to be able to set
-  the card's front and back to absolute position. */
   position: relative;
-
-  /* The width and height of this div is 100% of
-  the card's width and height */
 	width: 100%;
   height: 100%;
-
-  /* Transition of 0.8 seconds.*/
 	transition: transform 0.8s;
   text-align: center;
 
-  /* This makes the card double-sided. Try removing it
-  and see what happens */
+  /* Detta får kortet dubbelsidigt, prova att ta bort raden
+  för att se vad som händer */
   transform-style: preserve-3d;
   border-radius: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*This styling makes the card flip! It rotates the card
-in the Y-axis. Change the Y to X and see what happens*/
+/* Denna stylingen får kortet att vända sig när man hovrar över det */
 .card:hover .card-inner {
 	transform: rotateY(180deg);
 }
 
-/*The styling for the front and back of the card.*/
 .card-front {
 	position: absolute;
 	width: 100%;
   height: 100%;
 
-  /* This makes the back of the card hidden on flip.*/
+  /* Denna kod döljer framsidan av kortet när det vänds*/
 	backface-visibility: hidden;
   background-color: hotpink;
   border-radius: 10px;
@@ -69,7 +59,7 @@ in the Y-axis. Change the Y to X and see what happens*/
   height: 100%;
   border-radius: 10px;
 
-  /* This makes the back of the card hidden on flip.*/
+  /* Denna kod döljer baksidan av kortet när det vänds*/
 	backface-visibility: hidden;
 	background-color: white;
   transform: rotateY(180deg);
